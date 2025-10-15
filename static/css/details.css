@@ -1,0 +1,19 @@
+.product-details {
+    align-content: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #e6e2d3;
+}
+
+.product-details img,
+.card-img-top {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

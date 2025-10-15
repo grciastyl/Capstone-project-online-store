@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="products container py-5">
+    <h1 class="text-center mb-4">Our Products</h1>
+
+    <div class="row">
+        {% for product in product_list %}
+
+        <div class="col-lg-3 col-sm-12 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" loading="lazy">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ product.name }}</h5>
+
+                    <p class="card-text fw-bold">${{ product.price }}</p>
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary">View Details</a>
+                    <div class="card-footer bg-white border-top mt-auto">
+                        {% if product.stock > 0 %}
+                        <span class="badge bg-success">In Stock</span>
+                        {% else %}
+                        <span class="badge bg-danger">Out of Stock</span>
+                        {% endif %}
+                        <a href="#" class="btn btn-primary float-end">Add to Cart</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

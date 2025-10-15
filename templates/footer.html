@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<footer class="bg-secondary text-light pt-5 pb-4 mt-5 mb-0">
+    <div class="container">
+        <div class="row gy-4 text-center text-lg-start align-items-start">
+
+            <!-- Site Info -->
+            <div class="col-12 col-md-6">
+                <h5 class="text-white fw-bold mb-3" style="font-size: 1.8rem;">Axis & Arbor</h5>
+                <p class="lead mb-2">All Rights Reserved © {{ now|date:"Y" }}</p>
+                <a href="{% url 'home' %}" class="text-light text-decoration-none lead d-inline-block mt-2">
+                    Home
+                </a>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-12 col-md-6">
+                <h5 class="text-white fw-bold mb-3" style="font-size: 1.8rem;">Contact</h5>
+                <a href="tel:18005555555" class="text-light d-block lead text-decoration-none mb-2">
+                    <i class="fa-solid fa-phone me-2"></i>1-800-555-5555
+                </a>
+                <a href="mailto:admin@localhost.com" class="text-light d-block lead text-decoration-none">
+                    <i class="fa-solid fa-envelope me-2"></i>admin@localhost.com
+                </a>
+            </div>
+
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,110 @@
+---- ONLY ONCE TO CREATE THE PROJECT -----
+
+# create a venv
+python -m venv venv
+
+# activate venv
+mac/linux: source venv/bin/activate
+windows: venv\Scripts\activate
+
+
+# install django
+python -m pip install django whitenoise pillow
+
+
+# create the project
+django-admin startproject config .
+
+----------------------------------------------
+
+-- create apps --
+
+python manage.py startapp namehere
+
+1 - create a urls 
+2 - register the apps
+3 - register the urls
+
+
+
+
+
+-- MIGRATIONS --
+EVERYTIME you modify a model you need to make migrations:
+python manage.py makemigrations
+python manage.py migrate
+
+Create Superuser
+python manage.py createsuperuser
+
+test login functionality
+
+
+Creating store:
+1. Python manage.py startapp store
+2. in new app create urls.py
+3. in store/urls.py type: from django.urls import path
+    urlpatterns = []
+4. config/settings  register app
+5 in config/urls add path to the new app
+6. in store/models.py type: 
+    class Product(models.Model):
+        image = models.ImageField(upload_to='product_images/')
+        name = models.CharField(max_length=100)
+        description = models.TextField()
+        price = models.DecimalField(max_digits=10, decimal_places=2)
+        stock = models.IntegerField()
+
+            def __str__(self):
+        return self.name
+
+        for blog check screenshots
+    class Post(models.model)
+        title
+        content
+        image created on
+
+Then MAKE MIGRATIONS!!
+
+In store/admin:     (app name/admin)
+    from .models import Product     (model name instead of product)
+    admin.site.register(Product)     (model name instead of product)
+
+In store/views type :from django.views.generic import ListView
+    from .models import Product
+
+    
+class Productlist(ListView):  Whatever the earlier model is, use its name+list
+    model =  Product          Use the earlier models name
+    template_name = "store/list.html"      its in the appname/list.html
+
+In templates, create a folder with appname, then create file list.html
+
+in list.html create the page structure
+
+in content enter:
+       {% for record in product_list %}
+        <div class="record">
+            img src="{{record.image.url}}"        change to whatever you want to show
+            <h5>{{ record.name }}</h5>              see screenshot for help
+            <p>{{ record.description }}</p>
+        </div>
+        {% endfor %}
+
+in store/urls enter:
+    from django.urls import path
+    from . import views
+
+
+    urlpatterns = [
+         path("products/", views.Productlist.as_view(), name="product_list")
+
+    
+]
+
+in config/urls enter:
+    from django.conf.urls.static import static
+    from django.conf import settings
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    

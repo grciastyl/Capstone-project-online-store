@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}About Page{% endblock %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <!-- Left side (Picture) -->
+    <div class="pic-container">
+        <img src="{% static 'images/about.jpg' %}" alt="Profile Picture" class="profile-pic">
+    </div>
+
+    <!-- Right side (Text) -->
+    <div class="text-container">
+        <h2>About Us</h2>        
+        <p>We are a team of passionate developers dedicated to creating innovative web solutions. Our expertise spans across various technologies, allowing us to deliver high-quality applications that meet the needs of our clients.
+            <br>
+            I enjoy the creativity of front-end development, where I can design interfaces that are both visually
+            appealing and functional. On the back end, I value the opportunity to apply problem-solving and logical
+            thinking to create efficient, reliable systems.
+            <br>
+            I am passionate about learning, improving my craft, and contributing to projects that combine clean design,
+            functionality, and innovation.
+        </p>
+    </div>
+</div>
+{% endblock %}
+

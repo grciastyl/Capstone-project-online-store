@@ -1,0 +1,19 @@
+
+.home-image {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+}
+
+@media(max-width: 768px) {
+    .home h1 {
+        text-align: center;
+        color: rgb(224, 64, 72);
+    }
+    .home-image {
+        width: 100%;
+        height: auto;
+    }
+}

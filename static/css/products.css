@@ -1,0 +1,12 @@
+.products {
+    max-width:1200px;
+
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+.card-img-top {
+    width: 275px;
+    height: 275px;
+    object-fit: fill;
+}
