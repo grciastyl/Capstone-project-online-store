@@ -107,4 +107,23 @@ in config/urls enter:
     from django.conf import settings
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+
+
+---- GIT -----
+- create the .gitignore file
+run:
+git init
+git add -A
+git commit -m "initial" 
+
+- create a github repository and copy https for win, ssh for mac
+run:
+git remote add origin PASTERURLHERE
+
+- first push:
+git push -u origin main 
+- if that ^ fails try:
+git push -u origin master
+
     
