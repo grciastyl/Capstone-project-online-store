@@ -1,0 +1,52 @@
+.post-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-detail h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.post-detail small {
+    color: #555;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Featured image */
+.featured-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-height: 500px; /* caps very tall images */
+    object-fit: cover;
+}
+
+/* Content images */
+.post-content img {
+    max-width: 100%;   /* scale down if too wide */
+    height: auto;      /* maintain aspect ratio */
+    border-radius: 5px;
+    margin: 15px 0;
+    max-height: 500px; /* reasonable height */
+    object-fit: cover;
+}
+
+/* Comments */
+.comments .comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .featured-image img,
+    .post-content img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Custom 3D Printing - Axis & Arbor{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/3d_printing.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="printing-hero text-white d-flex align-items-center justify-content-center text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Custom 3D Printing</h1>
+        <p class="lead">Transform your digital designs into physical reality with precision and creativity.</p>
+        <a href="#gallery" class="btn btn-warning mt-3">Explore Our Work</a>
+    </div>
+</section>
+
+<!-- Description -->
+<section class="printing-info py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Your Imagination, Printed in 3D</h2>
+        <p class="text-center text-muted mb-5">
+            Whether you need prototypes, models, or artistic creations, our 3D printing services bring your ideas to life with high-quality materials and meticulous attention to detail.
+        </p>
+
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fa-solid fa-cube fa-3x text-warning mb-3"></i>
+                <h5>Precision Printing</h5>
+                <p>We use advanced 3D printers to ensure accuracy, strength, and a smooth finish for every project.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa-solid fa-layer-group fa-3x text-warning mb-3"></i>
+                <h5>Wide Material Options</h5>
+                <p>Choose from PLA, ABS, PETG, resin, and more to match your design needs and durability goals.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa-solid fa-pen-ruler fa-3x text-warning mb-3"></i>
+                <h5>Custom Design</h5>
+                <p>Work with us to modify or create 3D models that perfectly fit your purpose — no matter how unique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="printing-gallery py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Recent 3D Printing Projects</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <img src="{% static 'images/3d1.jpg' %}" class="img-fluid rounded shadow" alt="3D Print 1">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/3d2.jpg' %}" class="img-fluid rounded shadow" alt="3D Print 2">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/3d3.jpg' %}" class="img-fluid rounded shadow" alt="3D Print 3">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

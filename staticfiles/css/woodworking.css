@@ -1,0 +1,54 @@
+/* Hero Section */
+.woodworking-hero {
+    background: url('../images/wood-bg.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    position: relative;
+}
+
+.woodworking-hero .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    inset: 0;
+}
+
+.woodworking-hero .hero-content {
+    z-index: 1;
+    max-width: 700px;
+}
+
+/* Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Quote Banner */
+.quote-banner {
+    background-color: #5d4037;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #5d4037;
+}
+
+/* Typography tweaks */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}

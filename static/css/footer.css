@@ -1,17 +1,48 @@
-footer {
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+/* Footer wrapper fills width and stays proportional to navbar height */
+.site-footer {
+    background-color: #484848; /* same as navbar */
+    color: #fff;
     font-family: 'Poppins', sans-serif;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    margin-top: 20px;
 }
 
-footer h5 {
+/* Footer headings and text */
+.site-footer h5 {
     letter-spacing: 0.5px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
 }
 
-footer a {
+.site-footer p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Footer links */
+.site-footer a {
+    color: #fff;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
-footer a:hover {
-    color: #ffc107; /* gold accent hover */
+.site-footer a:hover {
+    color: #fbc531; /* gold accent hover */
     transform: scale(1.05);
+}
+
+/* Align footer content neatly on larger screens */
+.footer-content {
+    max-width: 1200px;
+}
+
+/* Ensure footer height and spacing scale properly on mobile */
+@media (max-width: 768px) {
+    .site-footer {
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
 }

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Custom Woodworking | Axis & Arbor{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/woodworking.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="woodworking-hero text-center text-light d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="hero-content position-relative">
+        <h1 class="display-4 fw-bold">Custom Woodworking</h1>
+        <p class="lead mt-3">
+            Handcrafted wood projects made to order — from elegant furniture to personalized home décor.
+        </p>
+        <a href="{% url 'contact' %}" class="btn btn-lg btn-light mt-3 shadow-sm">Request a Custom Quote</a>
+    </div>
+</section>
+
+<section class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold mb-3 text-dark">Our Work</h2>
+        <p class="text-muted fs-5">Every piece is crafted with care, precision, and passion for fine woodworking.</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{% static 'images/woodworking1.jpg' %}" class="card-img-top" alt="Custom sign">
+                <div class="card-body">
+                    <h5 class="card-title text-center fw-semibold">Custom Signs</h5>
+                    <p class="card-text text-center text-muted">
+                        Personalized engraved signs for homes, businesses, or gifts, made from premium hardwoods.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{% static 'images/SpectrePlaque.png' %}" class="card-img-top" alt="Awards and plaques">
+                <div class="card-body">
+                    <h5 class="card-title text-center fw-semibold">Military Awards & Plaques</h5>
+                    <p class="card-text text-center text-muted">
+                        Custom plaques and awards crafted from fine hardwoods, perfect for honoring service and achievement.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="{% static 'images/woodworking3.jpg' %}" class="card-img-top" alt="Wood decor">
+                <div class="card-body">
+                    <h5 class="card-title text-center fw-semibold">Décor & Wall Art</h5>
+                    <p class="card-text text-center text-muted">
+                        Unique carved and engraved wood art pieces that showcase the natural beauty of the grain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="quote-banner text-center py-5">
+    <div class="container">
+        <h3 class="text-light fw-bold mb-3">Have a Project in Mind?</h3>
+        <p class="text-light mb-4">We’ll work with you to design something truly special.</p>
+        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">Start Your Project</a>
+    </div>
+</section>
+{% endblock %}

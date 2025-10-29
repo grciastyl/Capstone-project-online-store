@@ -1,0 +1,79 @@
+/* About Section Layout */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #4a90e2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Text Section */
+.text-container {
+    flex: 2;
+}
+
+/* Center both headings */
+.text-container h2 {
+    text-align: center;
+}
+
+/* First heading style */
+.text-container h2:first-child {
+    font-size: 22px;
+    font-weight: 500;
+    color: #4a90e2;
+    margin-bottom: 8px;
+}
+
+/* Second heading style */
+.text-container h2:nth-child(2) {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Paragraph style */
+.text-container p {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+    .text-container h2 {
+        text-align: center;
+    }
+    .text-container p {
+        text-align: center;
+    }
+    
+}

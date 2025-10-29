@@ -1,10 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView
 from django.contrib.auth.models import User
-from .forms import SignupForm
 from django.contrib.auth import logout
-from django.shortcuts import redirect
+from .forms import SignupForm
+
+# Import cart models
+from cart.models import Cart, CartItem
+from store.models import Product
+
 
 
 """
@@ -22,27 +26,51 @@ LoginView    = LogIn
 
 
 # Create your views here.
+
 class UserLogin(LoginView):
     template_name = 'users/login.html'
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        user = self.request.user
+
+        # Merge session cart into user's real cart
+        session_cart = self.request.session.get('cart', {})
+        if session_cart:
+            cart, _ = Cart.objects.get_or_create(user=user)
+            for product_id, qty in session_cart.items():
+                product = Product.objects.get(id=int(product_id))
+                item, created = CartItem.objects.get_or_create(cart=cart, product=product, defaults={'quantity': qty})
+                if not created:
+                    item.quantity += qty
+                    item.save()
+            # Clear session cart
+            del self.request.session['cart']
+
+        # Redirect to cart after login
+        return redirect('cart:view_cart')
+
+
 class UserSignup(CreateView):
-    model= User
-    form_class = SignupForm #use the form created in forms.py
-    template_name = 'users/signup.html' #signup template is here
-    success_url = '/users/login/'  # Redirect to login page after successful signup
+    model = User
+    form_class = SignupForm
+    template_name = 'users/signup.html'
+    success_url = '/users/login/'  # redirect to login after signup
 
     def form_valid(self, form):
-        # Save the new user
-        user = form.save(commit=False) # extract user data but don't save yet
-        pass_text = form.cleaned_data['password'] # get the password from the form
-        user.set_password(pass_text) # encrypts the password
-        user.save() # saves the user to the database
-        
+        # Save the user with hashed password
+        user = form.save(commit=False)
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
         return super().form_valid(form)
-    
 
+
+# -------------------
+# Function-based views
+# -------------------
 
 def logout_view(request):
     logout(request)
-    request.session.flush()  # Clears session data including cached user info
+    request.session.flush()  # Clears session data
     return redirect('home')

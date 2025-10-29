@@ -1,0 +1,31 @@
+body {
+    background-color: #f7f5f2; /* light neutral wood-tone background */
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4b3832;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.03);
+}

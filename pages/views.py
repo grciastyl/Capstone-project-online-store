@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.conf import settings
 
@@ -13,19 +13,21 @@ def contact_view(request):
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            # Send email
-            send_mail(
-                subject=f"New contact message from {name}",
-                message=message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.DEFAULT_FROM_EMAIL],  # your email
-                fail_silently=False,
-            )
+            subject = f"New contact message from {name}"
+            full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
 
-            # Optional: show success message
+            # Create and send the email
+            email_message = EmailMessage(
+                subject=subject,
+                body=full_message,
+                from_email=settings.EMAIL_HOST_USER,  # your Gmail
+                to=[settings.EMAIL_HOST_USER],        # where you want to receive it
+                reply_to=[email],                     # so you can reply directly to the sender
+            )
+            email_message.send(fail_silently=False)
+
             messages.success(request, "Thank you! Your message has been sent.")
             return redirect('contact')  # redirect to avoid re-submission
-
     else:
         form = ContactForm()
 

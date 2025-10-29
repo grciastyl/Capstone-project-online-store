@@ -1,0 +1,17 @@
+footer {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+footer h5 {
+    letter-spacing: 0.5px;
+}
+
+footer a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffc107; /* gold accent hover */
+    transform: scale(1.05);
+}

@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container">
         <!-- Brand -->
         <a class="navbar-brand fw-bold me-4" href="{% url 'home' %}">
@@ -23,15 +23,38 @@
                 {% with request.resolver_match.url_name|default_if_none:'' as current_url %}
 
                 <li class="nav-item mx-2">
-                    <a class="nav-link {% if current_url == 'home' or request.path == '/' %}active{% endif %}" href="{% url 'home' %}">
+                    <a class="nav-link {% if current_url == 'home' or request.path == '/' %}active{% endif %}"
+                        href="{% url 'home' %}">
                         <i class="fa fa-home me-1"></i>Home
                     </a>
                 </li>
 
-                <li class="nav-item mx-2">
-                    <a class="nav-link {% if current_url == 'product_list' %}active{% endif %}" href="{% url 'product_list' %}">
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle {% if current_url in 'product_list cutting_boards woodworking printing' %}active{% endif %}"
+                        href="{% url 'product_list' %}" id="productsDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         <i class="fa fa-cubes me-1"></i>Products
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                        <li>
+                            <a class="dropdown-item {% if current_url == 'product_list' %}active{% endif %}"
+                                href="{% url 'product_list' %}">
+                                Cutting Boards
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if current_url == 'woodworking' %}active{% endif %}"
+                                href="{% url 'woodworking' %}">
+                                Custom Woodworking
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if current_url == 'printing' %}active{% endif %}"
+                                href="{% url 'printing' %}">
+                                Custom 3D Printing
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="nav-item mx-2">
@@ -46,34 +69,43 @@
                     </a>
                 </li>
 
+                <li class="nav-item mx-2">
+                    <a class="nav-link {% if current_url == 'blog' %}active{% endif %}" href="{% url 'blog_list' %}">
+                        <i class="fa fa-pencil me-1"></i>Blog
+                    </a>
+                </li>
+
                 {% endwith %}
 
                 {% if user.is_authenticated %}
-                    <li class="nav-item mx-2">
-                        <span class="nav-link disabled text-light">Welcome, {{ user.username }}</span>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="btn btn-outline-light btn-sm" href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link" href="{% url 'cart:view_cart' %}">
-                            Cart
-                            {% if cart_total_items > 0 %}
-                                <span class="badge bg-primary">{{ cart_total_items }}</span>
-                            {% endif %}
-                        </a>
-                    </li>
+                <li class="nav-item mx-2">
+                    <span class="nav-link disabled text-light">Welcome, {{ user.username }}</span>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        <i class="fa fa-right-from-bracket me-1"></i>Logout
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" href="{% url 'cart:view_cart' %}">
+                        <i class="fa fa-shopping-cart me-1"></i>
+                        Cart
+                        {% if cart_total_items > 0 %}
+                        <span class="badge bg-secondary">{{ cart_total_items }}</span>
+                        {% endif %}
+                    </a>
+                </li>
                 {% else %}
-                    <li class="nav-item mx-2">
-                        <a class="nav-link {% if current_url == 'login' %}active{% endif %}" href="{% url 'login' %}">
-                            <i class="fa-solid fa-right-to-bracket me-1"></i>Log In
-                        </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link {% if current_url == 'signup' %}active{% endif %}" href="{% url 'signup' %}">
-                            <i class="fa-solid fa-user-plus me-1"></i>Sign Up
-                        </a>
-                    </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link {% if current_url == 'login' %}active{% endif %}" href="{% url 'login' %}">
+                        <i class="fa fa-right-to-bracket me-1"></i>Log In
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link {% if current_url == 'signup' %}active{% endif %}" href="{% url 'signup' %}">
+                        <i class="fa fa-user-plus me-1"></i>Sign Up
+                    </a>
+                </li>
                 {% endif %}
             </ul>
         </div>

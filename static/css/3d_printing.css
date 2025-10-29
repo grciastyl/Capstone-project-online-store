@@ -1,0 +1,39 @@
+.printing-hero {
+    background: url('../images/3d-hero.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    background-color: #222;
+    position: relative;
+}
+
+.printing-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.printing-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.printing-info h2 {
+    color: #333;
+}
+
+.printing-info i {
+    transition: transform 0.3s ease;
+}
+
+.printing-info i:hover {
+    transform: scale(1.2);
+}
+
+.printing-gallery img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.printing-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

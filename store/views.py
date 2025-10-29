@@ -25,4 +25,8 @@ class Productdetail(DetailView):
     model = Product
     template_name = "store/details.html"
 
-    
+def custom_woodworking(request):
+    return render(request, "store/custom_woodworking.html")
+
+def custom_printing(request):
+    return render(request, "store/custom_printing.html")

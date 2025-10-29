@@ -1,0 +1,15 @@
+.form-control {
+    border: 2px solid #5c5c5e !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: #fbc531 !important; /* gold accent on focus */
+    box-shadow: 0 0 5px rgba(251, 197, 49, 0.5) !important;
+}
+
+.container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}

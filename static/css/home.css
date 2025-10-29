@@ -1,19 +1,152 @@
-
-.home-image {
-    width: 500px;
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    margin: 20px auto;
+/* Overall container */
+.home-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 67vh;
+    background: linear-gradient(135deg, #575758 0%, #7a7a7c 100%);
+    overflow: hidden;
+    perspective: 1200px; /* enables 3D depth */
 }
 
-@media(max-width: 768px) {
-    .home h1 {
-        text-align: center;
-        color: rgb(224, 64, 72);
+/* Center logo */
+.logo-center img {
+    width: 250px;
+    z-index: 3;
+    position: relative;
+    filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.6));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Carousel containers */
+.carousel-container {
+    position: absolute;
+    width: 28%;
+    height: 80%;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+.carousel-container.left {
+    left: 6%;
+    transform: rotateY(25deg) scale(0.95);
+}
+
+.carousel-container.right {
+    right: 6%;
+    transform: rotateY(-25deg) scale(0.95);
+}
+
+/* Fade carousel */
+.fade-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.fade-carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    animation: fadeCycle 15s infinite;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* Fade cycle animation */
+.fade-carousel img:nth-child(1) { animation-delay: 0s; }
+.fade-carousel img:nth-child(2) { animation-delay: 5s; }
+.fade-carousel img:nth-child(3) { animation-delay: 10s; }
+
+@keyframes fadeCycle {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+
+
+/* -------- RESPONSIVE DESIGN -------- */
+
+/* Tablet view (less tilt, smaller images) */
+@media (max-width: 992px) {
+    .carousel-container {
+        width: 30%;
+        height: 40%;
     }
-    .home-image {
-        width: 100%;
+
+    .carousel-container.left {
+        left: 5%;
+        transform: rotateY(12deg);
+    }
+
+    .carousel-container.right {
+        right: 5%;
+        transform: rotateY(-12deg);
+    }
+
+    .logo-center img {
+        width: 200px;
+    }
+}
+/* Soft vignette overlay for cinematic look */
+.fade-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0) 65%,
+        rgba(0, 0, 0, 0.45) 100%
+    );
+    z-index: 2;
+}
+
+
+/* Mobile view (stack vertically, center everything) */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+        justify-content: center;
         height: auto;
+        padding: 4rem 1rem;
+    }
+
+    .carousel-container {
+        position: static;
+        width: 80%;
+        height: 200px;
+        transform: none !important;
+        margin: 1.5rem 0;
+    }
+
+    .fade-carousel img {
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo-center img {
+        width: 180px;
+        margin: 1rem 0;
     }
 }

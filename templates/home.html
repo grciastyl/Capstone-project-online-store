@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home Page{% endblock %}
 
-{% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="home">
+<div class="home-container">
+    <!-- Left angled carousel -->
+    <div class="carousel-container left">
+        <div class="fade-carousel">
+            <img src="{% static 'images/wood1.png' %}" alt="Woodwork 1">
+            <img src="{% static 'images/wood2.png' %}" alt="Woodwork 2">
+            <img src="{% static 'images/wood3.png' %}" alt="Woodwork 3">
+        </div>
+    </div>
 
-    <img class="home-image" src="{% static 'images/homelogo.png' %}" alt="test image">
+    <!-- Center logo -->
+    <div class="logo-center">
+        <img src="{% static 'images/homelogo.png' %}" alt="Axis & Arbor Logo">
+    </div>
+
+    <!-- Right angled carousel -->
+    <div class="carousel-container right">
+        <div class="fade-carousel">
+            <img src="{% static 'images/print1.png' %}" alt="3D Print 1">
+            <img src="{% static 'images/print2.png' %}" alt="3D Print 2">
+            <img src="{% static 'images/print3.jpg' %}" alt="3D Print 3">
+        </div>
+    </div>
 </div>
 {% endblock %}

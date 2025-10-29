@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+    <h1 class="text-center mb-5">Our Blog</h1>
+
+    {% for post in posts %}
+    <div class="blog-card d-flex align-items-start mb-4 flex-wrap">
+        <!-- Left: text content -->
+        <div class="blog-text flex-grow-1 me-3">
+            <h2 class="blog-title"><a href="{{ post.slug }}/">{{ post.title }}</a></h2>
+            <p class="blog-snippet">{{ post.content|truncatewords:25 }}</p>
+            <div class="blog-meta mb-2">
+                <span class="blog-author">By {{ post.author }}</span> | 
+                <span class="blog-date">{{ post.created_at|date:"M d, Y" }}</span>
+            </div>
+            <a href="{{ post.slug }}/" class="read-more btn btn-primary btn-sm">Read More →</a>
+        </div>
+
+        <!-- Right: image -->
+        {% if post.image %}
+        <div class="blog-image">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>No posts available yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
