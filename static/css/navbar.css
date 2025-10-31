@@ -24,3 +24,16 @@
         height: 50px;
     }
 }
+
+.dropdown-menu {
+    background-color: #343a40;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #f8f9fa;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #495057;
+    color: #fff;
+}

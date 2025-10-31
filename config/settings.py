@@ -12,8 +12,20 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+import os
+import environ
+import certifi
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Initialize secure connections
+os.environ['SSL_CERT_FILE'] = certifi.where()
+
+# Load the .env file
+env = environ.Env()
+environ.Env.read_env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -147,10 +159,34 @@ LOGOUT_REDIRECT_URL = 'home'  # Where to go after logout
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+
+'''ChatGPT recommendations for email settings
 DEFAULT_FROM_EMAIL = 'chrisfsdiclass@gmail.com'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "chrisfsdiclass@gmail.com"
-EMAIL_HOST_PASSWORD = "wknb yhsk rgwf rnyy"
+EMAIL_HOST_PASSWORD = "password goes here"
+'''
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+
+'''Method used in class
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = env('SMTP_EMAIL')
+#EMAIL_HOST_PASSWORD = env('SMTP_PASS')
+#SMTP_EMAIL="chrisfsdiclass@gmail.com"
+#SMTP_PASS="password goes here"
+'''
+
+

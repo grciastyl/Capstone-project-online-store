@@ -26,7 +26,8 @@
                 <td>
                     <form method="POST" action="{% url 'cart:update_quantity' item.id %}">
                         {% csrf_token %}
-                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control d-inline-block" style="width: 70px;">
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                            class="form-control d-inline-block" style="width: 70px;">
                         <button class="btn btn-sm btn-primary">Update</button>
                     </form>
                 </td>
@@ -45,7 +46,10 @@
         </tfoot>
     </table>
     <a href="{% url 'product_list' %}" class="btn btn-secondary">Continue Shopping</a>
-    <a href="#" class="btn btn-success">Proceed to Checkout</a>
+    <div class="text-end mt-3">
+        <a href="{% url 'cart:checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+    </div>
+
     {% else %}
     <p>Your cart is empty.</p>
     <a href="{% url 'product_list' %}" class="btn btn-primary">Shop Now</a>

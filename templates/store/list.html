@@ -4,7 +4,7 @@
 {% block title %}Products{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/products.css' %}">
+<link rel="stylesheet" href="{% static 'css/list.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -22,14 +22,20 @@
 
                     <p class="card-text fw-bold">${{ product.price }}</p>
                     <a href="{% url 'product_detail' product.id %}" class="btn btn-secondary">View Details</a>
-                    <div class="card-footer bg-white border-top mt-auto">
+                    <div
+                        class="card-footer bg-white border-top mt-auto d-flex justify-content-between align-items-center flex-wrap">
                         {% if product.stock > 0 %}
                         <span class="badge bg-success">In Stock</span>
+                        <a href="{% url 'cart:add_to_cart' product.id %}"
+                            class="btn btn-outline-primary btn-sm mt-2 mt-sm-0">
+                            Add to Cart
+                        </a>
                         {% else %}
                         <span class="badge bg-danger">Out of Stock</span>
+                        <button class="btn btn-outline-secondary btn-sm mt-2 mt-sm-0" disabled>
+                            Out of Stock
+                        </button>
                         {% endif %}
-                        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-outline-primary">Add to Cart</a>
-
                     </div>
 
 

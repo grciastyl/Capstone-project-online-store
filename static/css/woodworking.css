@@ -1,6 +1,6 @@
 /* Hero Section */
 .woodworking-hero {
-    background: url('../images/wood-bg.jpg') center/cover no-repeat;
+    background: url('../images/wavy.png') center/cover no-repeat;
     min-height: 70vh;
     position: relative;
 }
@@ -27,13 +27,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.card img {
-    height: 250px;
-    object-fit: cover;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
 /* Quote Banner */
 .quote-banner {
     background-color: #5d4037;
@@ -51,4 +44,33 @@ h1, h2, h3 {
 
 p {
     font-family: 'Open Sans', sans-serif;
+}
+
+/* --- Final optimized woodworking card image styling --- */
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    /* Rendering & clarity improvements */
+    image-rendering: -webkit-optimize-contrast; /* Chrome / Safari */
+    image-rendering: crisp-edges;               /* Firefox / Edge */
+    image-rendering: high-quality;              /* General fallback */
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform, filter;
+
+    /* Subtle clarity and tone enhancement */
+    filter: brightness(1.03) contrast(1.05) saturate(1.02);
+
+    /* Smooth transitions */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Slight hover effect for visual pop */
+.card:hover img {
+    transform: scale(1.02) translateZ(0);
+    filter: brightness(1.08) contrast(1.1);
 }

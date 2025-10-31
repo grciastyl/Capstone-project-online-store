@@ -78,14 +78,25 @@
                 {% endwith %}
 
                 {% if user.is_authenticated %}
-                <li class="nav-item mx-2">
-                    <span class="nav-link disabled text-light">Welcome, {{ user.username }}</span>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link" href="{% url 'logout' %}">
-                        <i class="fa fa-right-from-bracket me-1"></i>Logout
+                <li class="nav-item dropdown mx-2">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-user me-1"></i>Welcome, {{ user.username }}
                     </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'cart:my_orders' %}">
+                                <i class="fa fa-box me-2 text-secondary"></i>My Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}">
+                                <i class="fa fa-right-from-bracket me-2 text-secondary"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="{% url 'cart:view_cart' %}">
                         <i class="fa fa-shopping-cart me-1"></i>
@@ -96,6 +107,7 @@
                     </a>
                 </li>
                 {% else %}
+
                 <li class="nav-item mx-2">
                     <a class="nav-link {% if current_url == 'login' %}active{% endif %}" href="{% url 'login' %}">
                         <i class="fa fa-right-to-bracket me-1"></i>Log In
