@@ -7,33 +7,38 @@
 
 .navbar .navbar-nav .nav-link {
     color: #fff;
+    transition: color 0.3s ease;
 }
 
-.navbar .navbar-nav .nav-link:hover {
-    color: #fbc531;
+/* Hover – stronger than active */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ffd86b !important; /* Slightly brighter gold */
 }
 
-.navbar .navbar-nav .active>.nav-link {
-    color: #fbc531;
+/* Active link color */
+.navbar .navbar-nav .nav-item.active .nav-link,
+.navbar .navbar-nav .nav-link.active {
+    color: #fbc531 !important;
 }
 
-
-@media (min-width: 992px) {
-    .navbar-brand img {
-        width: 50px;
-        height: 50px;
-    }
-}
-
+/* Dropdown menu */
 .dropdown-menu {
     background-color: #343a40;
 }
 
 .dropdown-menu .dropdown-item {
     color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-menu .dropdown-item:hover {
     background-color: #495057;
-    color: #fff;
+    color: #ffd86b; /* Gold hover in dropdown too */
+}
+
+/* Cart counter gold */
+.cart-count {
+    color: #fbc531 !important;
+    font-weight: 600;
 }

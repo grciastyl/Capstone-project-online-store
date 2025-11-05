@@ -18,7 +18,6 @@
             <h2 class="blog-title"><a href="{{ post.slug }}/">{{ post.title }}</a></h2>
             <p class="blog-snippet">{{ post.content|truncatewords:25 }}</p>
             <div class="blog-meta mb-2">
-                <span class="blog-author">By {{ post.author }}</span> | 
                 <span class="blog-date">{{ post.created_at|date:"M d, Y" }}</span>
             </div>
             <a href="{{ post.slug }}/" class="read-more btn btn-secondary btn-sm">Read More →</a>

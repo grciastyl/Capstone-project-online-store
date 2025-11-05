@@ -41,6 +41,39 @@
     padding: 10px 0;
 }
 
+/* ---------- NEW ADDITIONS BELOW ---------- */
+
+/* Style all links inside post detail */
+.post-detail a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.post-detail a:hover {
+    color: #fbc531; /* gold hover */
+}
+
+/* Add space above the comment form */
+.post-detail form {
+    margin-top: 20px;
+}
+
+/* Improve label-to-textarea spacing */
+.post-detail form label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.post-detail form textarea {
+    margin-top: 4px;
+}
+
+/* Add spacing below the comments section */
+.comments {
+    margin-bottom: 15px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .featured-image img,

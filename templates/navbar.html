@@ -79,7 +79,7 @@
 
                 {% if user.is_authenticated %}
                 <li class="nav-item dropdown mx-2">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-user me-1"></i>Welcome, {{ user.username }}
                     </a>
@@ -102,7 +102,10 @@
                         <i class="fa fa-shopping-cart me-1"></i>
                         Cart
                         {% if cart_total_items > 0 %}
-                        <span class="badge bg-secondary">{{ cart_total_items }}</span>
+                        <span class="badge bg-secondary {% if cart_total_items > 0 %}cart-count{% endif %}">
+                            {{ cart_total_items }}
+                        </span>
+
                         {% endif %}
                     </a>
                 </li>

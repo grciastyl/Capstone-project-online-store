@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    border: 1px solid #ddd;
+    border: 2px solid #b5b5b5;
     border-radius: 8px;
     padding: 20px;
     background-color: #fff;
@@ -33,6 +33,7 @@
     margin-right: 15px;
     display: flex;
     flex-direction: column;
+    line-height: 1.6;
 }
 
 /* Right image column with fixed size */
@@ -52,18 +53,32 @@
 /* Title and snippet */
 .blog-title {
     font-size: 1.25rem;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    text-decoration: none;
+}
+
+.blog-title a {
+    color: #333; /* Dark gray for readability on white card */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.blog-title a:hover {
+    color: #fbc531; /* Gold on hover */
 }
 
 .blog-snippet {
     flex-grow: 1; /* push meta and button to bottom */
     margin-bottom: 10px;
+    line-height: 1.6;
 }
 
 .blog-meta {
     font-size: 0.875rem;
     color: #555;
     margin-bottom: 10px;
+    line-height: 1.6;
 }
 
 .read-more {

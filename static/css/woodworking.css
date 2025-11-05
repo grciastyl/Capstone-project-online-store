@@ -74,3 +74,13 @@ p {
     transform: scale(1.02) translateZ(0);
     filter: brightness(1.08) contrast(1.1);
 }
+
+.zoom-img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.zoom-img:hover {
+    transform: scale(1.03);
+}
+

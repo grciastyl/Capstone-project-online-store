@@ -28,7 +28,7 @@
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="{% static 'images/sign.png' %}" class="card-img-top" alt="Custom sign">
+                <img src="{% static 'images/sign.png' %}" class="card-img-top zoom-img" alt="Custom sign" onclick="openImage(this.src)">
                 <div class="card-body">
                     <h5 class="card-title text-center fw-semibold">Custom Signs</h5>
                     <p class="card-text text-center text-muted">
@@ -40,11 +40,12 @@
 
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="{% static 'images/SpectrePlaque.png' %}" class="card-img-top" alt="Awards and plaques">
+                <img src="{% static 'images/SpectrePlaque.png' %}" class="card-img-top zoom-img" alt="Awards and plaques" onclick="openImage(this.src)">
                 <div class="card-body">
                     <h5 class="card-title text-center fw-semibold">Military Awards & Plaques</h5>
                     <p class="card-text text-center text-muted">
-                        Custom plaques and awards crafted from fine hardwoods, perfect for honoring service and achievement.
+                        Custom plaques and awards crafted from fine hardwoods, perfect for honoring service and
+                        achievement.
                     </p>
                 </div>
             </div>
@@ -52,7 +53,7 @@
 
         <div class="col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="{% static 'images/woodworking3.jpg' %}" class="card-img-top" alt="Wood decor">
+                <img src="{% static 'images/wall-art.png' %}" class="card-img-top zoom-img" alt="Wood decor" onclick="openImage(this.src)">
                 <div class="card-body">
                     <h5 class="card-title text-center fw-semibold">Décor & Wall Art</h5>
                     <p class="card-text text-center text-muted">
@@ -71,4 +72,27 @@
         <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">Start Your Project</a>
     </div>
 </section>
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-dark">
+            <div class="modal-body p-0 position-relative">
+                <img id="modalImage" src="" class="img-fluid w-100" alt="">
+                <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+function openImage(src) {
+    document.getElementById('modalImage').src = src;
+    var modal = new bootstrap.Modal(document.getElementById('imageModal'));
+    modal.show();
+}
+</script>
+
 {% endblock %}
