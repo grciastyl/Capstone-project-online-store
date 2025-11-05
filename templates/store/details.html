@@ -18,11 +18,14 @@ Product Details - {{ product.name }}
     <p>Price: ${{ product.price }}</p>
     {% if product.stock > 0 %}
     <span class="badge bg-success">In Stock</span>
+    <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-outline-primary btn-sm mt-2 mt-sm-0">
+        Add to Cart
+    </a>
     {% else %}
     <span class="badge bg-danger">Out of Stock</span>
+    <button class="btn btn-outline-secondary btn-sm mt-2 mt-sm-0" disabled>
+        Out of Stock
+    </button>
     {% endif %}
-
-
-    <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
 </div>
 {% endblock %}

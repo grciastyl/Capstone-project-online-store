@@ -19,7 +19,7 @@
     height: 220px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid #4a90e2;
+    border: 6px solid #4b4c4d;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -37,7 +37,7 @@
 .text-container h2:first-child {
     font-size: 22px;
     font-weight: 500;
-    color: #4a90e2;
+    color: #4b4c4d;
     margin-bottom: 8px;
 }
 
