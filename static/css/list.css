@@ -58,6 +58,15 @@
     margin-left: 10px;
 }
 
+.description-container {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #5C3B1E;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     .col-lg-3 {
