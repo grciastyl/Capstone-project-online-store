@@ -1,9 +1,11 @@
 .products {
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #F8F2E9;
+    padding: 2rem;
+    border-radius: 12px;
 }
 
-/* Make the cards uniform and elegant */
 .card {
     border: none;
     border-radius: 10px;
@@ -12,16 +14,22 @@
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 14px rgba(212, 160, 86, 0.35);
 }
 
 /* Keep product images sharp and consistent */
 .card-img-top {
     width: 100%;
-    height: 250px; /* fixed height for uniform grid */
+    height: 250px;
     object-fit: fill;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #5C3B1E; 
+    text-align: center;
 }
 
 /* Make card content balanced */
