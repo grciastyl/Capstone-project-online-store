@@ -10,6 +10,13 @@
     margin-top: 20px;
 }
 
+.vob-icon {
+    
+    height: 90px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
 /* Footer headings and text */
 .site-footer h5 {
     letter-spacing: 0.5px;
